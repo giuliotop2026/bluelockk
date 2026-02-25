@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 import datetime
 
-# --- ESTETICA DA SALOON BLUE LOCK ---
+# --- ESTETICA DA SALOON BLUE LOCK (BLINDATA) ---
 st.markdown("""
     <style>
     .stApp {
@@ -28,36 +28,36 @@ client_pplx = OpenAI(api_key=PPLX_API_KEY, base_url="https://api.perplexity.ai")
 # Sincronizzazione Temporale per il Live
 ora_attuale = datetime.datetime.now().strftime("%A %d %B %Y, %H:%M")
 
-st.set_page_config(page_title="SNIPER 19.0 LIVE COMMANDER", page_icon="⚽", layout="wide")
+st.set_page_config(page_title="SNIPER 20.0 LIVE SCRAPER", page_icon="⚽", layout="wide")
 
-st.title("🌵 SNIPER 19.0: 'LIVE COMMANDER' 📡")
-st.markdown(f"### *'Comandi Tattici in Tempo Reale. Orologio: {ora_attuale}.'* 🔫 🥃")
+st.title("🌵 SNIPER 20.0: 'LIVE BOOKIE-SCRAPER' 📡")
+st.markdown(f"### *'Scansione Live su SNAI/Eurobet. Orologio: {ora_attuale}.'* 🔫 🥃")
 
-# 3. IL RADAR TATTICO
-st.subheader("📡 SONAR LIVE: COSA FARE IN QUESTO MOMENTO?")
+# 3. IL RADAR DEI VANTAGGI
+st.subheader("📡 PALINSESTO LIVE: SU CHI PUNTARE ORA?")
 
-if st.button("🔥 ATTIVA COMANDO LIVE (ORDINI IMMEDIATI)"):
-    with st.spinner(f"LO SCERIFFO STA ANALIZZANDO LA PRESSIONE DEI CAMPI ALLE {ora_attuale}... 🚬"):
+if st.button("🔥 SCANSIONA BOOKMAKERS (IDENTIFICA IL MARMO LIVE)"):
+    with st.spinner(f"LO SCERIFFO STA SETACCIANDO I PORTALI DI SCOMMESSE ALLE {ora_attuale}... 🚬"):
         try:
-            # Prompt evoluto per istruzioni tattiche dirette
+            # Prompt specifico per scraping/ricerca su siti di scommesse
             prompt_pplx = f"""
-            SISTEMA: COMANDANTE TATTICO BLUE LOCK. PARLA COME UN COWBOY DURO E DECISO.
+            SISTEMA: ESPERTO TRADER LIVE BLUE LOCK. PARLA COME UN COWBOY DURO.
             DATA E ORA: {ora_attuale}. 
 
-            OBIETTIVO: Trova i match di calcio che si stanno giocando ADESSO e dimmi COSA FARE.
+            RICERCA: Scansiona i principali portali di scommesse (SNAI, Eurobet, PlanetWin365, Bet365) per trovare match di calcio IN CORSO (Live).
             
-            PARAMETRI DI COMANDO (LIVE RULES):
-            1. COSA FARE: Se una squadra domina (AP > 1.5/min) ma è 0-0, ordina di puntare 'OVER 0.5 HT' o 'SEGNO 1 LIVE'. [cite: 2026-01-21]
-            2. ITALIANE IN EUROPA: Se c'è un match di Atalanta, Juve o Fiorentina, ordina 'UNDER 4.5' o 'DNB' per protezione. [cite: 2026-01-22]
-            3. NO SVIZZERA: Se intercetti match svizzeri, ordina di 'EVITARE IL TERRITORIO'. [cite: 2026-01-13]
-            4. BIAS FEMMINILE: Se giocano in Australia/Scozia, ordina 'CARICARE OVER'. [cite: 2026-01-18]
-            5. OBIETTIVO 100€: Seleziona colpi con quote tra 1.40 e 2.00 per la nostra multipla da 3€ -> 100€. [cite: 2026-01-21]
+            PARAMETRI DI SELEZIONE (BOOKIE RULES):
+            1. IDENTIFICA: Squadre, Minuto, Punteggio e Quota attuale (1, X, 2).
+            2. LOGICA BLUE LOCK: Cerca match dove la squadra favorita (quota iniziale <1.60) è ancora 0-0 o sta perdendo, ma domina le statistiche (AP > 1.5/min). [cite: 2026-01-21]
+            3. MERCATI: Suggerisci 1X2, Handicap o DNB per la nostra multipla da 11 pepite (3€ -> 100€). [cite: 2026-01-21]
+            4. FILTRI: Niente Svizzera, protezione totale sulle italiane (Under 4.5). [cite: 2026-01-13, 2026-01-22]
+            5. SERIE C (B/C): Se trovi match live di queste categorie, dagli la priorità. [cite: 2026-01-26]
 
-            REFERTO TATTICO (SINTASSI MAIUSCOLA):
-            '⚠️ ORDINE LIVE: [SQUADRE] - [RISULTATO/MINUTO]'
-            'AZIOINE DA COMPIERE: [Es: Punta ora / Aspetta minuto X / Esci dalla scommessa]'
-            'INTENSITÀ DEL CANTIERE: [0-100]%'
-            'DENSITÀ TECNICA: [Perché il marmo sta per crepare].'
+            REFERTO LIVE (SINTASSI MAIUSCOLA):
+            '⚠️ OPPORTUNITÀ SNAI/LIVE: [SQUADRE] - [MINUTO/RISULTATO]'
+            'QUOTA ATTUALE: [Valore quota]'
+            'ORDINE TATTICO: [Es: Punta ora sul Segno 1 / Aspetta quota 1.80]'
+            'DENSITÀ TECNICA: [Perché questo colpo è marmo puro].'
             """
             
             response = client_pplx.chat.completions.create(
@@ -69,8 +69,8 @@ if st.button("🔥 ATTIVA COMANDO LIVE (ORDINI IMMEDIATI)"):
             st.balloons()
             
         except Exception as e:
-            st.error(f"☠️ URTO NEL COMANDO LIVE: {e}")
+            st.error(f"☠️ URTO NELLO SCRAPER: {e}")
 
 # 4. MONITOR DEL CANTIERE
-st.sidebar.image("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=2070&auto=format&fit=crop", caption="Blue Lock Monitoring")
 st.sidebar.markdown(f"**Socio, il Napoli è nel cuore, il Marmo è nella testa.** [cite: 2026-01-25]")
+st.sidebar.write("Obiettivo: 3€ -> 100€ [cite: 2026-01-21]")
